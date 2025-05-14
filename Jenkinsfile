@@ -3,18 +3,29 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
-				echo 'building the application...'
+				echo 'building the applicaiton...'
 			}
 		}
 		stage("test") {
 			steps {
-				echo 'testing the application...'
+				echo 'testing the applicaiton...'
 			}
 		}
 		stage("deploy") {
 			steps {
-				echo 'deploying the application...'
+				echo 'deploying the applicaiton...'
 			}
 		}
 	}
-}
+	post {
+			always {
+				echo 'building..😁'
+			}
+			success {
+	            echo 'success😉'
+			}
+			failure {
+	            echo 'failure😢'
+			}
+		}
+	}
